@@ -1,0 +1,177 @@
+/*  ROOT */
+:root {
+  --color-primary: #12e5c4;
+  --color-secondary: #000000;
+  --color-nav: #d2d2d2;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Navigation Bar */
+.nav {
+  background: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.nav_list {
+  width: 100%;
+  margin: 0;
+}
+
+.nav__item {
+  padding: 1rem 3rem;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-nav);
+}
+
+.nav__item > a {
+  color: var(--color-nav);
+  transition: color 0.4s;
+}
+
+.nav__item > a:hover {
+  color: #fff;
+}
+
+.nav-secondary {
+  background: var(--color-secondary);
+  margin: 0;
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/*ICONS*/
+.icon {
+  font-size: 5rem;
+}
+
+.styled {
+  margin: auto;
+  font-size: 2.5rem;
+  margin: 5rem auto;
+  font-weight: 700;
+}
+
+/* OVERVIEW */
+.home-box {
+  width: 1000px;
+  height: 100px;
+  margin: 3rem auto;
+}
+
+.overview {
+  font-size: 3rem;
+  margin-bottom: 8rem;
+  padding-bottom: 8rem;
+}
+
+/* CREATE USERS FORM */
+#form input,
+#form select {
+  width: 200px;
+  font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  font-weight: 400;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
+/* CREATE USERS BUTTON */
+.btn {
+  white-space: nowrap;
+  text-align: center;
+  margin: 5rem 21rem;
+
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  background: var(--color-secondary);
+  border-radius: 4px;
+  border: 0;
+  color: var(--color-nav);
+  margin-top: 5rem;
+  margin-left: 1.9rem;
+}
+
+.btn:hover {
+  color: #ffffff;
+  transition: color 0.4s;
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+th {
+  background-color: var(--color-secondary);
+  color: var(--color-nav);
+}
+
+.tabletime {
+  margin: 5rem auto;
+  width: 100rem;
+}
+
+/* MEMBERS SECTION */
+.containers-grid {
+  display: grid;
+  grid-template: repeat(1, auto) / repeat(2, auto);
+  border: 3px solid dodgerblue;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-box {
+  width: auto;
+  height: auto;
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="stuff, learning" />
+    <meta name="team planner" content="..." />
+    <title>PlannerWebPageHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}" />
+  </head>
+  <body>
+    <nav class="nav banner-img">
+      <a href="http://127.0.0.1:8000/playground/hello/"
+        ><img src="{% static 'website/banner.svg' %}" alt=""
+      /></a>
+    </nav>
+  </body>
+  <div class="member-box">
+    {% with svg_size=40 %}
+    <h1 class="icon">
+      <img
+        src="{% static 'website/user-plus-solid.svg' %}"
+        width="{{ svg_size }}"
+        height="{{ svg_size }}"
+      />
+      DELETE USERS
+    </h1>
+    {% endwith %}
+
+    <form id="form" class="styled box" method="post">
+      <table>
+        {{ form }}
+      </table>
+      {% csrf_token %}
+      <button id="button" class="btn" type="submit">DELETE</button>
+    </form>
+
+    {% if response %}
+    <p>{{ response }}</p>
+    {% endif %}
+  </div>
+</html>

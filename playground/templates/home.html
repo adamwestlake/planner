@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="stuff, learning" />
+    <meta name="team planner" content="..." />
+    <title>PlannerWebPageHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}" />
+  </head>
+  <body>
+    <nav class="nav banner-img">
+      <a href="http://127.0.0.1:8000/home/"
+        ><img src="{% static 'website/banner.svg' %}" alt=""
+      /></a>
+    </nav>
+
+    <nav class="nav-secondary">
+      <ul class="list nav_list">
+        <li class="nav__item">
+          <a href="http://127.0.0.1:8000/home/">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="http://127.0.0.1:8000/admin">Admin</a>
+        </li>
+        <li class="nav__item">
+          <a href="http://127.0.0.1:8000/new/">Members</a>
+        </li>
+        <li class="nav__item">
+          <a href="http://127.0.0.1:8000/test/">Test</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="home-box">
+      {% with svg_size=40 %} {% if name %}
+      <h1 class="icon">
+        <img
+          src="{% static 'website/users-rect.svg' %}"
+          width="{{ svg_size }}"
+          height="{{ svg_size }}"
+        />
+
+        Hello, {{ name }}.
+      </h1>
+
+      {% else %}
+      <h1>hello user H1</h1>
+      {% endif %} {% endwith %}
+
+      <p class="overview">
+        There are currently {{ num_employees }} employees across {{ num_teams }}
+        teams in the database.
+      </p>
+    </div>
+    <div class="tabletime">
+      {% for location, users in user_data_by_location.items %}
+      <h2>{{ location.building }}</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Start Date</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.start_date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% endfor %}
+    </div>
+  </body>
+</html>
+
+{% comment %}
+<li>
+  {{ user.name }} is a {{user.role}} at {{user.location.building}} initial
+  employment was {{user.start_date}}
+</li>
+{% endfor %} {% endcomment %} {% comment %}
+<ul>
+  {% for user in users %}
+  <li>
+    {{ user.name }} is a {{user.role}} at {{user.location.building}} initial
+    employment was {{user.start_date}}
+  </li>
+  {% endfor %}
+</ul>
+{% endcomment %}

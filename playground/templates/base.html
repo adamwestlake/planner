@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="stuff, learning" />
+    <meta name="team planner" content="..." />
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}" />
+  </head>
+  <body>
+    <nav class="nav banner-img">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'website/banner.svg' %}" alt="" />
+      </a>
+    </nav>
+
+    <nav class="nav-secondary">
+      <ul class="list nav_list">
+        <li class="nav__item">
+          <a href="{% url '/home/' %}">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="{% url 'admin:index' %}">Admin</a>
+        </li>
+        <li class="nav__item">
+          <a href="{% url 'members' %}">Members</a>
+        </li>
+        <li class="nav__item">
+          <a href="{% url 'test' %}">Test</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>
